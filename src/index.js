@@ -4,10 +4,13 @@ const { createServer } = require('node:http');
 const app = express();
 const server = createServer(app);
 
+app.set('view engine', 'ejs');
+
 app.get('/', (req, res) => {
-  res.send('<h1>Hello world</h1>');
+  const user = 'dummy'
+  res.render('index', {user})
 });
 
 server.listen(3000, () => {
-  console.log('server running at 3000');
+  console.log('server is live');
 });
